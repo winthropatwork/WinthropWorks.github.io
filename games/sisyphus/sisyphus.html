@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sisyphus</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<!-- Player -->
+	<table style="width:50%">
+	  <tr>
+		<td>Sanity</td>
+		<td id="cuttentSanity" style="width:120px">100</td> 
+	  </tr>
+	  <tr>
+		<td>Water</td>
+		<td id="currentPlayerHunger" style="width:120px">100</td> 
+	  </tr>
+	</table>
+	<table style="width:50%">
+		<tr style="height:100px">
+			<td style align="center" id="storyLabel">You wake coughing, black smoke burns your eyes and waves of heat 
+			roll over your body. Looking towards the heat you see an escape pod, the flames lick out of every crack 
+			and fisser like the egg of a Phoenix. Around you lies the mountian in all directions, its rocky face 
+			patched with snow and tuffs of green climb into the clouds. Looking at your commucation tool you see 
+			there is no signal. Then you hear the coughing.</td>
+		</tr>
+		<tr>
+			<td id="buttonOneText">Investage the coughing</td>
+			<td><button onclick="updateStateButtonOne()" style="width:120px">A</button></td>
+		</tr>
+		<tr>
+			<td id="buttonTwoText">Move into the mounatians and try to get a signal.</td>
+			<td><button onclick="updateStateButtonTwo()" style="width:120px">B</button></td>
+		</tr>
+	</table>
+	
+	
+	<!-- May -->
+	<br></br>
+	<!-- <table id="mayTable" style="width:50%; visibility:hidden;">
+	  <tr>
+		<td>Thirst</td>
+		<td id="currentMayHunger" style="width:120px;"></td> 
+	  </tr>
+	</table> -->	
+	<p id="mayDialogue"></p>
+	<button id="mayTalkButton" onclick="updateStateTalkMay()" style="width:25%; visibility:hidden;">Talk</button>
+	<button id="mayLeaveButton" onclick="updateStateLeaveMay()" style="width:25%; visibility:hidden;">Leave</button>
+	
+	<p id="debuglog"></p>
+	
+	
+	<!-- Javascript part -->
+	<script>
+	// what a huge pain in the ass you need a var to trigger the set interval to update
+	var madnessModifer = 3;
+	var playerUpdate = setInterval(updateState, 1000*madnessModifer);
+	//var haveMay = setInterval(refreshMayOptions, 100);
+	var mayStatus = 0;
+	var gameState = 0;
+	
+	var playerHunger = 100;
+	var mayHunger = 100;
+	var sanityCounter =100;
+	
+
+	var buttonOneValue = 1;
+	var buttonTwoValue = 2;
+	
+	function refreshState(){
+	}
+	// player choices
+	function updateStateButtonOne() {
+		
+		gameState = buttonOneValue;
+		updateStory();
+		//document.getElementById("debuglog").innerHTML = gameState;
+		document.getElementById("mayDialogue").innerHTML = "";
+		
+		if (gameState == 1){
+		mayStatus = 1;
+		document.getElementById("mayDialogue").style.visibility = "visible";
+		document.getElementById("mayTalkButton").style.visibility = "visible";
+		document.getElementById("mayLeaveButton").style.visibility = "visible";
+		}
+	}
+	function updateStateButtonTwo() {
+			
+		gameState = buttonTwoValue;
+		updateStory();
+		
+		document.getElementById("mayDialogue").innerHTML = "";
+		
+	}
+	
+	
+	// may buttons
+	function updateStateTalkMay() {
+		
+		var maySpeeks = storyId[gameState].mayText;
+		document.getElementById("mayDialogue").innerHTML = maySpeeks;
+	}
+	function updateStateLeaveMay() {
+		mayStatus = 0;
+		//document.getElementById("mayTable").style.visibility = "hidden";
+		document.getElementById("mayDialogue").style.visibility = "hidden";
+		document.getElementById("mayTalkButton").style.visibility = "hidden";
+		document.getElementById("mayLeaveButton").style.visibility = "hidden";
+	}
+	
+	function updateState(){
+		// update stats
+		if(sanityCounter == 0 | playerHunger == 0){
+			if (sanityCounter == 0 ){
+			document.getElementById("storyLabel").innerHTML = "You have succumbed to madness and run screaming into the mountian, no-one will hear your tale.";
+			} 
+			if (playerHunger == 0 ){
+			document.getElementById("storyLabel").innerHTML = "Exhausted you fall to your knees, unable to move forward you lay down and close your eyes for the last time.";
+			} 
+			
+		}else {
+			if(mayStatus==0){
+			sanityCounter = sanityCounter -2;
+			playerHunger = playerHunger -1;
+			//mayHunger = mayHunger -1;
+			} else{
+			sanityCounter = sanityCounter -1;
+			playerHunger = playerHunger -2;
+			//mayHunger = mayHunger -1;
+			}
+			document.getElementById("cuttentSanity").innerHTML = sanityCounter;
+			document.getElementById("currentPlayerHunger").innerHTML = playerHunger;
+			document.getElementById("currentMayHunger").innerHTML = mayHunger;
+		}
+		
+				
+	}
+	function updateStory(){
+
+	// set the states, instructions and story elements based on the storyId array 
+		
+		var buttonOneInstructions = storyId[gameState].buttonOneLabel;
+		var buttonTwoInstructions = storyId[gameState].buttonTwoLabel;
+		var x = storyId[gameState].storyText;
+		buttonOneValue = storyId[gameState].buttonOneGoTo;
+		buttonTwoValue = storyId[gameState].buttonTwoGoTo;
+		
+		document.getElementById("storyLabel").innerHTML = x;
+		document.getElementById("buttonOneText").innerHTML = buttonOneInstructions;
+		document.getElementById("buttonTwoText").innerHTML = buttonTwoInstructions;
+	}
+	// story time
+	var storyId = [
+		// 0 intro
+		{
+		storyText:"You wake coughing, black smoke burns your eyes and waves of heat roll over your body. Looking towards the heat you see an escape pod, the flames lick out of every crack and fisser like the egg of a Phoenix. Around you lies the mountian in all directions, its rocky face patched with snow and tuffs of green climb into the clouds. Looking at your commucation tool you see there is no signal. Then you hear the coughing.",
+		buttonOneLabel:"Investage the coughing",
+		buttonOneGoTo:"2",
+		buttonTwoLabel:"Move into the mounatians and try to get a signal.",
+		buttonTwoGoTo:"3",
+		mayText:"cough.",
+		},
+		// 1 frist chose help 
+		{
+		storyText:"You find anothe survivor laying near the pod, chard cloth still smoking and burns on their face.",
+		buttonOneLabel:"Help survivor",
+		buttonOneGoTo:"3",
+		buttonTwoLabel:"Leave them and move into the Mountians",
+		buttonTwoGoTo:"2",
+		mayText:"Water.. please.",
+		},
+		// 2 frist chose leave
+		{
+		storyText:"Shuttering, you turn away. Getting help is the best chance for all.",
+		buttonOneLabel:"Take the left path",
+		buttonOneGoTo:"2",
+		buttonTwoLabel:"Take the right path",
+		buttonTwoGoTo:"3",
+		mayText:"Drup, well you didn't pick this option",
+		},
+		// 3 frist chose help
+		{
+		storyText:"Pressing their lips to your water pouch they gingerly spin from the water.",
+		buttonOneLabel:"We need to move up, I can't get singal here.",
+		buttonOneGoTo:"4",
+		buttonTwoLabel:"You have limited water, leave them and move into the Mountians",
+		buttonTwoGoTo:"2",
+		mayText:"Oh god, thank you. I thought I was the only one.",
+		},
+		// 4 frist chose help
+		{
+		storyText:"Helping them up you beging to walk into the mountian.",
+		buttonOneLabel:"Take the left path.",
+		buttonOneGoTo:"4",
+		buttonTwoLabel:"Take the right path.",
+		buttonTwoGoTo:"2",
+		mayText:"Oh god, thank you. I thought I was the only one.",
+		},
+	]
+		
+
+	</script>
+	
+</body>
+
+</html>
