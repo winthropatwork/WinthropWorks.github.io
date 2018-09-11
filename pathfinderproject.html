@@ -5,14 +5,14 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-<div class="nav-bar" align="center">
+<div class="nav-bar" id="navbar" align="center">
   <a href="gamedevelopmenthistory.html" ><img class="buttonimage" boarder="0" alt="Game Development" src="images/ui_btn_GameDev.png" width="80px" height="80px" /></a>
   <a href="pathfinderproject.html"><img class="buttonimage" border="0" alt="Personal Art Pathfinder" src="images/ui_btn_pathfinder.png" width="80px" height="80px" /></a>
   <a href="personalart.html"><img class="buttonimage" border="0" alt="Personal Art" src="images/ui_btn_PersonalArt.png" width="80px" height="80px" /></a>
 
   <!-- Contact -->
 </div>
-
+<div class="content">
 	<div style="text-align: center;">
 	I love Pen and Paper RPGs, the chance to share worlds and stories with a group of players in a very personal and immersive way. This project came from my love of that experience, I wanted to sketch and share the spells from Pathfinder as icons.<br /><br />Please Note: This is in no way authorized or connected to Paizo Publishing owner of Pathfinder</div>
 	<br />
@@ -107,7 +107,24 @@
 	<a href="https://2.bp.blogspot.com/-NakvGP0JVbo/W1xamfcxxOI/AAAAAAAAEeg/fmArgBUusg4av_Q1LG1Yh6g94778PEfuACLcBGAs/s1600/WinthropPathfinder_Ventriloquism.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="128" data-original-width="128" src="https://2.bp.blogspot.com/-NakvGP0JVbo/W1xamfcxxOI/AAAAAAAAEeg/fmArgBUusg4av_Q1LG1Yh6g94778PEfuACLcBGAs/s1600/WinthropPathfinder_Ventriloquism.png" /></a>
 
 	</div>
-	
+</div>	
+
+<script>
+	// When the user scrolls the page, execute Function 
+	window.onscroll = function() {navbarsticky()};
+	// Get the navbar
+	var navbar = document.getElementById("navbar");
+	// Get the offset position of the navbar
+	var sticky = navbar.offsetTop;
+	// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+	function navbarsticky() {
+	  if (window.pageYOffset >= sticky) {
+		navbar.classList.add("sticky")
+	  } else {
+		navbar.classList.remove("sticky");
+	  }
+	}
+</script>	
 </body>
 </html>
 
