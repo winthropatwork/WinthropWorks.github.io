@@ -1,10 +1,103 @@
+/* Animations */
+.landing-anim-item1 {
+	-webkit-animation-name: slideup; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+	animation-name: slideup;
+    animation-duration: 1s;
+	opacity: 0;
+	animation-fill-mode: forwards;
+	animation-delay: 0.5s;
+}
+.landing-anim-item2 {
+	-webkit-animation-name: slideup; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+	animation-name: slideup;
+    animation-duration: 1s;
+	opacity: 0;
+	animation-fill-mode: forwards;
+	animation-delay: 1.5s;
+}
+.landing-anim-item3 {
+	-webkit-animation-name: slideup; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+	animation-name: slideup;
+    animation-duration: 1s;
+	opacity: 0;
+	animation-fill-mode: forwards;
+	animation-delay: 2.5s;
+}
+.landing-anim-text1{
+	-webkit-animation-name: fadein; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+	animation-name: slideup;
+    animation-duration: 1s;
+	opacity: 0;
+	animation-fill-mode: forwards;
+	animation-delay: 1s;
+}
+.landing-anim-text2{
+	-webkit-animation-name: fadein; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+	animation-name: slideup;
+    animation-duration: 1s;
+	opacity: 0;
+	animation-fill-mode: forwards;
+	animation-delay: 2s;
+}
+.landing-anim-text3{
+	-webkit-animation-name: fadein; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+	animation-name: slideup;
+    animation-duration: 1s;
+	opacity: 0;
+	animation-fill-mode: forwards;
+	animation-delay: 3s;
+}
+
+}
+/* slide in from below */
+@-webkit-keyframes slideup {
+	from { opacity: 0; transform:translateY(100%); }
+    to   { opacity: 1; transform:translateY(0%); }
+}
+@keyframes slideup {
+	from { opacity: 0; transform:translateY(100%); }
+    to   { opacity: 1; transform:translateY(0%); }
+}
+/* fade in*/
+@-webkit-keyframes slideup {
+	from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes slideup {
+	from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
+/*grids */ 
+.landingpagegrid-container {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 20px
+	background-color: #1F232D;
+}
+.landingpagegrid-container > div {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+.landingpagegriditem1 {
+	grid-column: 1;
+}
+/* Navbar links */
 .nav-bar {
 	overflow: hidden;
 	width: 100%;
 	height: 80px;
 	background-color: #1F232D;
 }
-/* Navbar links */
 .navbar a {
   float: left;
   display: block;
@@ -20,11 +113,13 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 .sticky + .content {
   padding-top: 80px;
+  /* transform breaks the objects to a new layer so it needs a z index to move the nav bar on top */
+  z-index: 1;
 }
-
 .buttonimage {
   opacity: 1;
   width: 80px;
@@ -32,6 +127,9 @@
   transition: .5s ease;
   backface-visibility: hidden;
 }
+
+/* elements */
+
 body {
 	background-color: #1d1f24;
 	color: white;
@@ -42,4 +140,9 @@ p {
 td {
     border: 1px solid black;
 	color: white;
+}
+h1 {
+	font-family: Helvetica;
+	font-size: 4.0em;
+	text-align: center;
 }
