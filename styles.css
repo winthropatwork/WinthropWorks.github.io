@@ -54,7 +54,7 @@
 	animation-delay: 3s;
 }
 
-}
+
 /* slide in from below */
 @-webkit-keyframes slideup {
 	from { opacity: 0; transform:translateY(100%); }
@@ -103,7 +103,6 @@
   display: block;
   color: #FF7145;
   text-align: center;
-  padding: 14px;
   text-decoration: none;
 }
 .content {
@@ -145,4 +144,12 @@ h1 {
 	font-family: Helvetica;
 	font-size: 4.0em;
 	text-align: center;
+}
+
+/* responsive design */
+@media screen and (orientation:portrait) {
+/* Portrait styles */
+	.landingpagegrid-container {
+		grid-template-columns: auto;
+	}
 }
