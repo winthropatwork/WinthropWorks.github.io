@@ -80,17 +80,16 @@
 	display: grid;
 	grid-template-columns: auto auto auto;
 	grid-gap: 20px
-	background-color: #1F232D;
+
 }
 .landingpagegrid-container > div {
-  background-color: rgba(255, 255, 255, 0.1);
+ /* background-color: rgba(255, 255, 255, 0.1); */ 
   text-align: center;
+  overflow: visible;
   padding: 20px 0;
   font-size: 30px;
 }
-.landingpagegriditem1 {
-	grid-column: 1;
-}
+
 /* Navbar links */
 .nav-bar {
 	overflow: hidden;
@@ -106,7 +105,6 @@
   text-decoration: none;
 }
 .content {
-  padding: 16px;
 }
 .sticky {
   position: fixed;
@@ -116,6 +114,7 @@
 }
 .sticky + .content {
   padding-top: 80px;
+  width: 100%;
   /* transform breaks the objects to a new layer so it needs a z index to move the nav bar on top */
   z-index: 1;
 }
@@ -128,13 +127,27 @@
 }
 
 /* elements */
+.dividerelement {
+	width: 33%;
+    height: 2px;
+	background-color: #80644b;
+	margin:0 auto;
+}
+
+.headerlogo {
+	width: auto;
+	height: 140px;
+}
 
 body {
 	background-color: #1d1f24;
+    background-image: linear-gradient(to bottom right, #2e3444, #16171b); /* Standard syntax (must be last) */
 	color: white;
+	font-family: Helvetica; 
+	margin: 0;
 }
 p {
-	color: white;	
+	color: #baad8e;	
 }
 td {
     border: 1px solid black;
@@ -142,8 +155,9 @@ td {
 }
 h1 {
 	font-family: Helvetica;
-	font-size: 4.0em;
+	font-size: 3.0em;
 	text-align: center;
+	color: #baad8e;
 }
 
 /* responsive design */
