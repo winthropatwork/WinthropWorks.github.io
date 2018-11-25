@@ -130,7 +130,7 @@
 			}
 			document.getElementById("cuttentSanity").innerHTML = sanityCounter;
 			document.getElementById("currentPlayerHunger").innerHTML = playerHunger;
-			document.getElementById("currentMayHunger").innerHTML = mayHunger;
+			//document.getElementById("currentMayHunger").innerHTML = mayHunger;
 		}
 		
 				
@@ -145,6 +145,7 @@
 		buttonOneValue = storyId[gameState].buttonOneGoTo;
 		buttonTwoValue = storyId[gameState].buttonTwoGoTo;
 		
+		console.log({x});
 		document.getElementById("storyLabel").innerHTML = x;
 		document.getElementById("buttonOneText").innerHTML = buttonOneInstructions;
 		document.getElementById("buttonTwoText").innerHTML = buttonTwoInstructions;

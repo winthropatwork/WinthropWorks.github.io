@@ -3,15 +3,27 @@
 <head>
 	<title>Winthrop Works - Homepage of Jonathan Winthrop Innes - UI Art/Design</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet">
+	<script src="index.js"></script>
+
 </head>
 <body>
-<div class="nav-bar" id="navbar" align="center">
-  <a href="gamedevelopmenthistory.html" ><img class="buttonimage" boarder="0" alt="Game Development" src="images/ui_btn_GameDev.png" width="80px" height="80px" /></a>
-  <a href="pathfinderproject.html"><img class="buttonimage" border="0" alt="Personal Art Pathfinder" src="images/ui_btn_pathfinder.png" width="80px" height="80px" /></a>
-  <a href="personalart.html"><img class="buttonimage" border="0" alt="Personal Art" src="images/ui_btn_PersonalArt.png" width="80px" height="80px" /></a>
-
-  <!-- Contact -->
-</div
+		<ul class="nav-bar" id="navbar">
+				<li><a href="index.html"><img src="images/logo_header_sitename.png" class="buttonimage" alt="Home"/></a></il>
+				<li><a href="gamedevelopmenthistory.html">Game Development</a></li>
+				<li><a href="pathfinderproject.html">Personal Art Pathfinder</a></li>
+				<li><a href="personalart.html">Personal Art</a></li>
+				<!--drop down-->
+				<li class="navdropdown">
+					<a href="javascript:void(0)"><img class="buttonimage" src="images/ui_btn_Hamburger.png" alt="navigation drop down menu"/></a>
+							<div class="navdropdown-content">
+							<a href="#">Link 1</a>
+							<a href="#">Link 2</a>
+							<a href="#">Link 3</a>
+					</div>	
+				</li>
+			
+			</ul>
 
 <div class="content">
 	<div style="text-align: center;">
@@ -117,14 +129,7 @@
 	var navbar = document.getElementById("navbar");
 	// Get the offset position of the navbar
 	var sticky = navbar.offsetTop;
-	// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-	function navbarsticky() {
-	  if (window.pageYOffset >= sticky) {
-		navbar.classList.add("sticky")
-	  } else {
-		navbar.classList.remove("sticky");
-	  }
-	}
+
 </script>	
 </body>
 </html>
