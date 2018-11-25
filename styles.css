@@ -1,16 +1,22 @@
 /* Navbar links */
 .nav-bar {
-	overflow: hidden;
 	list-style-type: none;
-	margin: 0;
-	width: 100%;
-	background-color: #1F232D;
- 	height: 60px;
-	/* vertical-align: middle; */
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    display: inline-block;
+    width: 100%;
+    background-color: #1F232D;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+	top: 0;
+
+}
+#navbar li {
+	float: left;
 }
 #navbar a {
-	float: left;
-	display: inline-block;
+	display: block;
 	color: #f2f2f2;
 	text-align: center;
 	font-size: 1em;
@@ -213,22 +219,6 @@
 
 
 
-/* sticky content */
-
-.content {
-}
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-}
-.sticky + .content {
-  padding-top: 60px;
-  width: 100%;
-  /* transform breaks the objects to a new layer so it needs a z index to move the nav bar on top */
-  z-index: 1;
-}
 
 .buttonimage {
   opacity: 1;
