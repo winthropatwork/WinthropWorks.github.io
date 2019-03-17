@@ -68,14 +68,11 @@ function ExportBGlayer(){
 function ConvertToSmartObject(layer){
    // alert("mergelayer");
     executeAction(stringIDToTypeID("newPlacedLayer"), new ActionDescriptor(), DialogModes.NO);  
-    // activeDocument.activeLayer.rasterize(RasterizeType.ENTIRELAYER);
 }
 
 
 function DeleteLayer(){
     activeDocument.activeLayer = app.activeDocument.layers[i];  
-    //executeAction(stringIDToTypeID("newPlacedLayer"), new ActionDescriptor(), DialogModes.NO);  
-    //remove();
 }
 
 // from internet https://graphicdesign.stackexchange.com/questions/96579/script-to-automatically-save-a-psd-when-saving-a-png
