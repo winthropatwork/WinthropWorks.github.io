@@ -26,5 +26,6 @@ Export All folders Inside BG
     Run ExportFoldersAsNewFiles.jsx 
 
 
-
+ToDo
+    Need to delete old folders as I export to reduce file size. This is more complex so it will be much later. 
 
