@@ -1,4 +1,4 @@
-Export script version 0.1
+Export script version 0.11
 Created by Jonathan Innes
 Last update March 17 2019 
 This script is intended to export layers with key names to files
@@ -24,11 +24,7 @@ Export All folders Inside BG
     You should name each of your subfolders what you want that background called. Example "SnowMountian"
     Create a layer at the top of your psd called "BGNameFalse"
     Run ExportFoldersAsNewFiles.jsx 
-    Run Photoshop's Export layers to files export
 
 
 
-ToDo
-    Write a custum paths function so as to auto save files to the background folder
-    Write function to export each layer inside the ExportBGSublayer function so you don't need to run layers to files
-    
+
