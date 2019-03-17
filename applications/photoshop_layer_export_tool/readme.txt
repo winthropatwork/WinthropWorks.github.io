@@ -19,3 +19,10 @@ Export All folders Inside BG
     Create a layer at the top of your psd called "BGNameFalse"
     Run ExportFoldersAsNewFiles.jsx 
     Run Photoshop's Export layers to files export
+
+
+
+ToDo
+    Write a custum paths function so as to auto save files to the background folder
+    Write function to export each layer inside the ExportBGSublayer function so you don't need to run layers to files
+    
