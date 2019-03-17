@@ -7,6 +7,11 @@ To run a script in photoshop
 
 Requirements:
 You must be using the format of having a single folder called "BG" for your background objects
+The 1st layer of your psd must be called "BGNameFalse" or the name you want to call your background
+The second layer of your psd must be the path to your local brackgrounds p4 folder, example "/c/projects/backgrounds/"
+Please note this will not check in any files to p4, you must still do that by hand
+Please note this will overwrite any files with the same name
+
 
 How to use:
 Export only BG layer 

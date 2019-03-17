@@ -1,18 +1,25 @@
 // javascipt 
 // uses 1st layer name to tell how to export psd, cuase menus are hard
 var doc = app.activeDocument;
+var Path = app.activeDocument.layers[1].name; 
+var psdname = Path+"psds";
+var pngname = Path+"pngs";
+var PSDPath = new Folder(psdname);
+var PNGPath = new Folder(pngname);
+
+
 if(app.activeDocument.layers[0].name == "BGNameFalse"){
     ExportBGSublayer();
-    alert("Job Done, Please run export>Layers To Files ");
+    ExportSmartObjectsAsFiles();
+    alert("Job Done, note this is a new file not your source one");
 }else {
     var exportName = app.activeDocument.layers[0].name; 
     ExportBGlayer();
-    var Path = app.activeDocument.path; 
-    var filePSD = File(Path + "/" + exportName +".psd"); 
-    var filePNG = File(Path + "/" + exportName +".png"); 
+    var filePSD = File(PSDPath + "/" + exportName +".psd"); 
+    var filePNG = File(PNGPath + "/" + exportName +".png"); 
     SavePSD(filePSD);
     SavePNG(filePNG);
-    alert("Job Done don't save this file");
+    alert("Job Done, note this is a new file not your source one");
 }
 
 // var layerlist = [];
@@ -38,7 +45,7 @@ for (var i = 0; i < doc.layers.length; i++){
         //     alert(layerlist[listcount]);
         // }
     } else{
-        alert("delete");
+        //alert("delete");
         currentLayer.remove();
         i= i-1;
 
@@ -73,6 +80,28 @@ function ConvertToSmartObject(layer){
 
 function DeleteLayer(){
     activeDocument.activeLayer = app.activeDocument.layers[i];  
+}
+
+
+function ExportSmartObjectsAsFiles(){
+    //hide all layers
+    count = doc.layers.length;
+    for (var i = 0; i < doc.layerSets[0].layers.length; i++){
+        app.activeDocument.layerSets[0].layers[i].visible = 0; 
+    }
+
+    //show layer then export and move to next layer
+    for (var i = 0; i < doc.layerSets[0].layers.length; i++){
+        app.activeDocument.layerSets[0].layers[i].visible = 1;
+        localExportName = app.activeDocument.layerSets[0].layers[i].name; 
+        //var Path = app.activeDocument.path; 
+        var filePSD = File(PSDPath + "/" + localExportName +".psd"); 
+        var filePNG = File(PNGPath + "/" + localExportName +".png"); 
+        SavePSD(filePSD);
+        SavePNG(filePNG);
+        app.activeDocument.layerSets[0].layers[i].visible = 0;
+        
+    }
 }
 
 // from internet https://graphicdesign.stackexchange.com/questions/96579/script-to-automatically-save-a-psd-when-saving-a-png
