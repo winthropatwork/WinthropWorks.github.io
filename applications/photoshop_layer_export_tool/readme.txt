@@ -1,6 +1,6 @@
-Export script version 0.11
+Export script version 0.12
 Created by Jonathan Innes
-Last update March 17 2019 
+Last update March 18 2019 
 This script is intended to export layers with key names to files
 To run a script in photoshop 
  Go to File>Scripts>browse or adding the .jsx file to your Presets\Scripts and selecting it from File>Scripts
@@ -28,4 +28,6 @@ Export All folders Inside BG
 
 ToDo
     Need to delete old folders as I export to reduce file size. This is more complex so it will be much later. 
-
+    Need to unlock all layers
+   
+   

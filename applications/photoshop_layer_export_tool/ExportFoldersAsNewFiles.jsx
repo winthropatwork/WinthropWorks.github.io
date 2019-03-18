@@ -30,7 +30,7 @@ for (var i = 0; i < doc.layers.length; i++){
     
     var currentLayer = app.activeDocument.layers[i];  
     //alert(currentLayer);
-    if (currentLayer.name == "BG"){
+    if (currentLayer.name == "BG" || currentLayer.name == "bg"){
         //alert("bg");
         layercount = app.activeDocument.layerSets[i].layerSets.length;
         for (var l = 0; l < layercount; l++){
@@ -59,7 +59,7 @@ function ExportBGlayer(){
         
         var currentLayer = app.activeDocument.layers[i];  
         //alert(currentLayer);
-        if (currentLayer.name == "BG"){
+        if (currentLayer.name == "BG" || currentLayer.name == "bg"){
             // this is where i might edit the bg stuff
         } else{
             //alert("delete");
