@@ -29,6 +29,10 @@ for (var i = 0; i < doc.layers.length; i++){
     //var sublayersize = app.activeDocument.layerSets.length;
     
     var currentLayer = app.activeDocument.layers[i];  
+    // checked if layer is locked and unlock as otherwise you can't delete it
+    if (currentLayer.allLocked == true){
+        currentLayer.allLocked = false;
+    }
     //alert(currentLayer);
     if (currentLayer.name == "BG" || currentLayer.name == "bg"){
         //alert("bg");
@@ -58,6 +62,10 @@ function ExportBGlayer(){
         //var sublayersize = app.activeDocument.layerSets.length;
         
         var currentLayer = app.activeDocument.layers[i];  
+            // checked if layer is locked and unlock as otherwise you can't delete it
+        if (currentLayer.allLocked == true){
+            currentLayer.allLocked = false;
+        }
         //alert(currentLayer);
         if (currentLayer.name == "BG" || currentLayer.name == "bg"){
             // this is where i might edit the bg stuff

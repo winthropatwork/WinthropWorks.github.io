@@ -1,4 +1,4 @@
-Export script version 0.12
+Export script version 0.121
 Created by Jonathan Innes
 Last update March 18 2019 
 This script is intended to export layers with key names to files
@@ -7,6 +7,7 @@ To run a script in photoshop
 
 Requirements:
 You must be using the format of having a single folder called "BG" for your background objects
+If you want more then one background element combine them into subfolders under BG, example wintersky and summergrass
 The 1st layer of your psd must be called "BGNameFalse" or the name you want to call your background
 The second layer of your psd must be the path to your local brackgrounds p4 folder, example "/c/projects/backgrounds/"
 This folder and the psds and exports must exist on your harddrive
@@ -28,6 +29,9 @@ Export All folders Inside BG
 
 ToDo
     Need to delete old folders as I export to reduce file size. This is more complex so it will be much later. 
+
+    Need to add option for exporting objects as well
+   
+   
+done
     Need to unlock all layers
-   
-   
