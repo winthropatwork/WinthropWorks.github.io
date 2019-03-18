@@ -3,7 +3,7 @@
 var doc = app.activeDocument;
 var Path = app.activeDocument.layers[1].name; 
 var psdname = Path+"psds";
-var pngname = Path+"pngs";
+var pngname = Path+"exports";
 var PSDPath = new Folder(psdname);
 var PNGPath = new Folder(pngname);
 
