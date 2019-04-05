@@ -8,18 +8,26 @@ var pngname = Path+"exports";
 var PSDPath = new Folder(psdname);
 var PNGPath = new Folder(pngname);
 
-var nameSize = docname.length;
-var docname = docname.slice(0,-4);
 
+
+// function cleanupName(name){
+
+var nameSize = docname.length;
+var docname = docname.slice(3,-4);
+var fristCharPlace = docname.indexOf("_");
+fristCharPlace = fristCharPlace + 1; 
+var docname = docname.slice(fristCharPlace);
+//     return(name);
+// }
 
 var exportName = docname;
-ExportBGlayer();
+//ExportBGlayer();
 var filePNG = File(PNGPath + "/" + exportName +".png"); 
 var filePSD = File(PSDPath + "/" + exportName +".psd"); 
-//alert(filePNG);
+// alert(filePNG);
 SavePNG(filePNG);
 SavePSD(filePSD);
-alert("Job Done, note this is a new file not your source one");
+alert("Job Done, note this is a new file not your source one. Exported to /c/temp/pogo");
 
 function ExportBGlayer(){
     for (var i = 0; i < doc.layers.length; i++){
